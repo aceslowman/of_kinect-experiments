@@ -3,6 +3,9 @@
 #include "ofMain.h"
 #include "ofxKinect.h"
 #include "ofxGui.h"
+#include "ofxCv.h"
+#include "ofxSyphon.h"
+
 
 class ofApp : public ofBaseApp{
 
@@ -27,10 +30,17 @@ class ofApp : public ofBaseApp{
     
     ofImage depth_image;
     
-    ofxPanel band_gui;
+    ofxPanel gui;
+    
     ofParameterGroup band_group;
     ofParameter<int> band_speed;
     ofParameter<int> band_width;
+
+    ofParameterGroup kinect_group;
+    ofParameter<int> kinect_smooth;
     
+    bool capture_frames;
+    ofImageType output_type, input_type;
     
+    ofxSyphonServer syphon;
 };
